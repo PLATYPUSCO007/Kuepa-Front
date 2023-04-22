@@ -1,0 +1,37 @@
+<div class="row align-items-end chat">
+  <div class="col">
+    <div
+      *ngFor="let message of receiveMessageHistory"
+      class="col mt-3"
+      [class.align-self-center]="message._id == idUser"
+      [class.bg-info]="message._id == idUser"
+      [class.align-self-end]="message._id !== idUser"
+      [class.bg-secondary]="message._id !== idUser"
+      [id]="message._id == idUser ? 'recibido' : 'enviado'"
+    >
+      <p
+        class="text-secondary text-white"
+        [class.text-start]="message._id == idUser"
+        [class.text-end]="message._id !== idUser"
+      >
+        {{ message.message }}
+      </p>
+    </div>
+  </div>
+</div>
+<form (ngSubmit)="enviar()" #miForm="ngForm" autocomplete="off">
+  <div class="row mt-2">
+    <div class="col-10">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ingrese su mensaje..."
+        [ngModel]="message.message"
+        name="message"
+      />
+    </div>
+    <div class="col-2">
+      <button class="btn btn-primary">Enviar</button>
+    </div>
+  </div>
+</form>

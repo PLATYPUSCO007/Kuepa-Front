@@ -1,0 +1,38 @@
+<div class="row align-items-center">
+  <div class="col vh-100 align-self-center">
+    <h2 class="mt-5">Inicio de sesión</h2>
+    <form (ngSubmit)="enviar()" #miForm="ngForm" autocomplete="off">
+      <div class="col mt-5">
+        <label for="" class="form-label">Usuario</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngModel]="userLog.usuario"
+          name="usuario"
+        />
+      </div>
+      <div class="col mt-5">
+        <label for="" class="form-label">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          [ngModel]="userLog.password"
+          name="password"
+        />
+      </div>
+      <div class="col mt-5">
+        <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+      </div>
+    </form>
+  </div>
+  <div
+    class="col bg-primary-subtle text-emphasis-primary vh-100 border border-info"
+  >
+    <h3 class="mt-5">Registrese aca 👇</h3>
+    <a
+      [routerLink]="['/log/register']"
+      class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+      >Registrarme</a
+    >
+  </div>
+</div>
